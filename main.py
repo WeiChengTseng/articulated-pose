@@ -15,6 +15,7 @@ from global_info import global_info
 import tensorflow as tf
 from tensorflow.python import debug as tf_debug
 from tensorflow.python.tools.inspect_checkpoint import print_tensors_in_checkpoint_file
+import pdb
 
 if __name__ == '__main__':
     infos = global_info()
@@ -114,7 +115,7 @@ if __name__ == '__main__':
     net = Network(n_max_parts=n_max_parts,
                   config=conf,
                   is_new_training=not should_restore)
-
+    pdb.set_trace()
     with tf.Session(config=tf_conf, graph=net.graph) as sess:
         if conf.is_debug_mode():
             sess = tf_debug.LocalCLIDebugWrapperSession(sess)
